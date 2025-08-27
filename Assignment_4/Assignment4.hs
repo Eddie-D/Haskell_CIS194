@@ -42,14 +42,14 @@ xor :: [Bool] -> Bool
 xor = foldr (/=) False
 
 map' :: (a -> b) -> [a] -> [b]
-map' f = foldr (\x y -> f x : y) []
+map' f = foldr ((:) . f) []
 
 myFoldl :: (a -> b -> a) -> a -> [b] -> a
 myFoldl f a = foldr (flip f) a . reverse
 
 -- Exercise 4 -----------------------------
 sieveSundaram :: Integer -> [Integer]
-sieveSundaram x = map ((+1) . (*2)) (filter (`notElem` (sundaramRemove x)) [1..x])
+sieveSundaram x = map ((+1) . (*2)) (filter (`notElem` sundaramRemove x) [1..x])
 
 sundaramRemove :: Integer -> [Integer]
-sundaramRemove x = [a + b + (2 * a * b) | a <- [1..x], b <- [1..x]]
+sundaramRemove x = [i + j + (2 * i * j) | i <- [1..x], j <- [i..x]]
