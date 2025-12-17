@@ -23,3 +23,6 @@ cabal.project.local~
 .HTF/
 .ghc.environment.*
 test.*
+Assignment_5/ExprT.hs
+Assignment_5/Parser.hs
+Assignment_5/StackVM.hs
